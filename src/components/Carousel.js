@@ -15,6 +15,18 @@ export default function Carousel() {
     setAdList(adList)
   }, [])
 
+  useEffect(function () {
+    if (adList.length > 0) {
+      let i = 0
+      setInterval(() => {
+        i++
+        i = i >= adList.length ? 0 : i
+        setcurAd(i)
+      }, 2000)
+    }
+  }, [adList])
+
+
   function prev() {
     let i = curAd - 1
     i = i < 0 ? adList.length - 1 : i
