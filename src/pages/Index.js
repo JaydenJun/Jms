@@ -20,7 +20,9 @@ export default function Index() {
         <Header></Header>
       </div>
       {/* banner */}
+      <div className="banner">
       <Carousel></Carousel>
+      </div>
       {/* main */}
       {/* footer */}
       <footer className="footer">
