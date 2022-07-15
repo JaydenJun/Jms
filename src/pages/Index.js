@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
-
+import Footer from '../components/Footer'
 export default function Index() {
   return (
     <>
@@ -11,6 +11,9 @@ export default function Index() {
       {/* banner */}
       {/* main */}
       {/* footer */}
+      <footer class="footer">
+      <Footer></Footer>
+      </footer>
     </>
   )
 }
