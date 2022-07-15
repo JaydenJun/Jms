@@ -16,15 +16,26 @@ export default function Carousel() {
   }, [])
 
   useEffect(function () {
-    if (adList.length > 0) {
-      let i = 0
-      setInterval(() => {
-        i++
+    let timer = null
+    // if (adList.length > 0 && timer === null) {
+    //   let i = 0
+    //   timer = setInterval(() => {
+    //     i++
+    //     i = i >= adList.length ? 0 : i
+    //     setcurAd(i)
+    //   }, 2000)
+    // }
+    if (adList.length) {
+      timer = setInterval(function () {
+        let i = curAd + 1
         i = i >= adList.length ? 0 : i
         setcurAd(i)
       }, 2000)
     }
-  }, [adList])
+    return function () {
+      clearInterval(timer)
+    }
+  }, [adList, curAd])
 
 
   function prev() {
