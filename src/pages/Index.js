@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import service from '../service'
 import Carousel from '../components/Carousel'
 import { Link } from 'react-router-dom'
+import { formatDate } from '../util'
 export default function Index() {
 
   let [newsList, setNewsList] = useState([])
@@ -52,8 +53,14 @@ export default function Index() {
             <ul>
               {newsList.map((n, i) => (
                 <li key={n.nid}>
-                  <span>{n.pubTime}</span>
-                  <Link to={"/news_details?nid="+n.nid}>{n.title}</Link></li>
+                  <span>{formatDate(n.pubTime)}</span>
+                  <Link
+                  style={{whiteSpace:"nowrap",overflow:"hidden",
+                  display:"inline-block",
+                  width:"320px",
+                  textOverflow:"ellipsis",
+                }}
+                  to={"/news_details?nid="+n.nid}>{n.title}</Link></li>
               ))}
               {/* <li><span>2016-02-21</span><a href="">空气净化器要逆天？ “玫瑰金”“土豪金”齐上阵</a></li>
               <li><span>2016-02-21</span><a href="">净美仕新风净化系统　助力校园新风行动</a></li>
